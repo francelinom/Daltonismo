@@ -1,5 +1,6 @@
 package com.example.daltonismo
 
+import android.app.Activity
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -32,6 +33,12 @@ class tela2 : AppCompatActivity() {
             startActivity(i)
         }
 
+        okbutton.setOnClickListener {
+            var i = Intent()
+            i.putExtra("RESPOSTA",digite.text.toString())
+            setResult(Activity.RESULT_OK,i)
+            finish()
+        }
 
     }
 }

@@ -66,15 +66,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        when(requestCode){
-            Activity.RESULT_OK->{
-                Toast.makeText(this, "Não é", Toast.LENGTH_SHORT).show()
-            }
-            Activity.RESULT_CANCELED->{
-                Toast.makeText(this, "Cancelou", Toast.LENGTH_SHORT).show()
-            }
+
+        val x = data?.getStringExtra("RESPOSTA")
+
+        if(requestCode==REQUESTCODE1){
+            resposta1.text = x.toString()
+        }
         }
     }
 
 
-}
+
