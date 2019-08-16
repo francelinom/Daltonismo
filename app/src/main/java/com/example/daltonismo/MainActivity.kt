@@ -63,10 +63,10 @@ class MainActivity : AppCompatActivity() {
         }
 
 
-        resultadoTeste.setOnClickListener {
+        verificar.setOnClickListener {
             try {
                 if (resultFinal()){
-                    resultadoTeste.text = "Aprovado no teste"
+                    resultadoTeste.text = "Aprovado no teste, NÃO DALTÔNICO"
                 }else{
                     resultadoTeste.text = "CUIDADO! Procurar um Médico"
                 }
