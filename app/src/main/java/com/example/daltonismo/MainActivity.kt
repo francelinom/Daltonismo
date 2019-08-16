@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     var resposta_2 = 0
     var resposta_3 = 0
 
-    var resultadoFinal = "Faça o teste"
+    var resultadoFinal = "Resultado Final"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,11 +30,11 @@ class MainActivity : AppCompatActivity() {
         var b =Bundle()
 
 
-        resposta1.text=resposta_1.toString()
-        resposta2.text=resposta_2.toString()
-        resposta3.text=resposta_3.toString()
+        resposta1.text = resposta_1.toString()
+        resposta2.text = resposta_2.toString()
+        resposta3.text = resposta_3.toString()
 
-        resultadoTeste.text=resultadoFinal
+        resultadoTeste.text = resultadoFinal
 
         teste1.setOnClickListener {
 
@@ -62,18 +62,36 @@ class MainActivity : AppCompatActivity() {
             startActivityForResult(i, REQUESTCODE3)
         }
 
+
+        resultadoTeste.setOnClickListener {
+            try {
+
+            }
+        }
+
     }
+
+    fun resultFinal(): Boolean {
+        return resposta1.text.toString().toInt() == 10 && resposta2.text.toString().toInt() == 16 && resposta3.text.toString().toInt() == 42
+    }
+
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
 
         val x = data?.getStringExtra("RESPOSTA")
 
-        if(requestCode==REQUESTCODE1){
+        if(requestCode == REQUESTCODE1){
             resposta1.text = x.toString()
-        }
+        }else if(requestCode == REQUESTCODE2){
+            resposta2.text = x.toString()
+        }else{
+            resposta3.text = x.toString()
         }
     }
+
+
+}
 
 
 
