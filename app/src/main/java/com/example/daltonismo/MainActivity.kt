@@ -65,7 +65,15 @@ class MainActivity : AppCompatActivity() {
 
         resultadoTeste.setOnClickListener {
             try {
+                if (resultFinal()){
+                    resultadoTeste.text = "Aprovado no teste"
+                }else{
+                    resultadoTeste.text = "CUIDADO! Procurar um Médico"
+                }
 
+            }catch (e: NumberFormatException){
+                resultadoTeste.text = "Erro"
+                Toast.makeText(this, "Erro", Toast.LENGTH_SHORT).show()
             }
         }
 
